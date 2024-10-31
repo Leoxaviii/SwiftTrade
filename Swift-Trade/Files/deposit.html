@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deposit Interface</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="flex justify-center min-h-screen items-center"style="font-family: 'Roboto', sans-serif;">
+    <div class="border rounded shadow-lg max-w-md p-4 mx-auto">
+         <!-- Language translation-->
+        <div id="google_translate_element"></div>
+          <img src="logo.jpg" width="50px"alt="">
+        <h1 class="text-xl font-medium text-center my-4">Deposit Funds</h1>
+        <form action="copybtc-address.html, copyeth-address.html, copyusdt-address.html"method="POST">
+            <label for="amount">Amount</label>
+            <input class="border rounded py-2 px-4 max-w-md block mb-4"type="number" id="amount" name="amount" placeholder="Enter amount" required>
+            
+            <label for="currency">Currency</label>
+            <select class="py-2 px-4 border rounded block mb-4 w-full bg-white" id="currency" name="currency">
+                          <option value="btc">BTC</option>
+                <option value="eth">ETH</option>
+                 
+     <option value="usd">USDT (Trc20)</option>
+            </select>
+            
+            <label for="payment-method">Payment Method</label>
+            <select class="border rounded py-2 px-4 block w-full bg-white mb-4"id="payment-method" name="payment-method">
+                <option value="Cryptocurrency">Cryptocurrency</option>
+                <option value="credit-card">Credit-Card</option>
+                <option value="bank-transfer">Bank Transfer</option>
+                <option value="pay-pal">Pay-pal</option>
+            </select>
+
+            <button onclick="" type="submit" class="w-full py-2 px-4 bg-blue-500 text-white border rounded hover:bg-blue-700">Deposit</button>
+        </form>
+    </div>
+</body>
+</html>

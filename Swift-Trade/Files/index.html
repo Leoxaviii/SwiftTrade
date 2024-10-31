@@ -1,0 +1,762 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+<!--  <meta name="viewport" content="width=device-width, initial-scale =1.0">-->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/563b3d322c.js" crossorigin="anonymous"></script>
+  <link rel ="stylesheet"type="text/css"href="style.css">
+  <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</head>
+<body class="max-md:w-full " style="font-family: 'Roboto', sans-serif;">
+<script type="text/javaScript"src="script.js"></script>
+    <!-- Nav section -->
+    <nav class="bg-[url('showcase.jpg')] bg-cover bg-center py-2">
+    <div class="flex justify-between items-center px-8 bg-opacity-50">
+        <div>
+            <p class="text-white">+1(413) 623 3456</p>
+        </div>
+        <div class="hidden md:flex text-white"> <!-- Hide this div on smaller screens -->
+            Midtown Tower, 9-7-1 Akasaka, Minato-ku, Tokyo 107-6208
+        </div>
+        <div class="flex space-x-4 text-white">
+            <i class="fa-brands fa-square-facebook fa-beat-fade"></i>
+            <i class="fa-brands fa-x-twitter fa-beat-fade"></i>
+            <i class="fa-brands fa-instagram fa-beat-fade"></i>
+            <i class="fa-brands fa-linkedin fa-beat-fade"></i>
+        </div>
+        <!-- Hamburger Icon -->
+        <div class="md:hidden">
+            <button onclick="window.location.href='register.html'"id="hamburger" class="text-white focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Dropdown Menu for Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black bg-opacity-50">
+        <div class="flex flex-col items-center">
+            <a href="#" class="text-white py-2 hover:text-blue-300">Home</a>
+            <a href="#" class="text-white py-2 hover:text-blue-300">About</a>
+            <a href="#" class="text-white py-2 hover:text-blue-300">Learn</a>
+            <a href="#" class="text-white py-2 hover:text-blue-300">FAQ</a>
+            <a href="#" class="text-white py-2 hover:text-blue-300">Contact Us</a>
+            <a href="#" class="text-white py-2 hover:text-blue-300">Register</a>
+            <a href="#" class="text-white py-2 hover:text-blue-300">Login</a>
+        </div>
+    </div>
+</nav>
+
+<!-- JavaScript for Hamburger Menu Functionality -->
+<script>
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    hamburger.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+    });
+</script>
+    
+    <!-- hero nav section -->
+    <nav class="relative flex flex-col items-center space-y-4 p-4 bg-cover bg-center bg-no-repeat bg-black/50">
+        <!-- Transparent background -->
+        <div class="absolute inset-0 bg-[url('header-nav.jpg')] bg-cover bg-center opacity-40"></div>
+        
+        <!-- Top section: Logo and links -->
+<div class="flex flex-col sm:flex-row items-center justify-center sm:justify-between space-x-0 sm:space-x-12 z-10">
+    <!-- Logo (Center on small screens) -->
+    <div class="flex-shrink-0 mb-4 sm:mb-0">
+        <img src="logo.jpg" alt="my image" class="h-12 mx-auto sm:mx-0 rounded-lg">
+    </div>
+
+    <!-- Links (Hidden on small screens) -->
+    <div class="hidden sm:flex space-x-6 text-white font-bold">
+        <a href="#" class="hover:text-blue-300">Home</a>
+        <a href="#" class="hover:text-blue-300">About</a>
+        <a href="#" class="hover:text-blue-300">Learn</a>
+        <a href="#" class="hover:text-blue-300">FAQ</a>
+        <a href="#" class="hover:text-blue-300">Contact Us</a>
+        <a href="#" class="hover:text-blue-300">Register</a>
+        <a href="#" class="hover:text-blue-300">Login</a>
+    </div>
+</div>
+
+
+        <!-- Language dropdown, placed under the links -->
+        
+        <div class="w-full flex justify-center z-10">
+            <div class="mt-2 max-w-xs w-full p-6 rounded border border-gray-300 shadow-sm focus:outline-none focus:ring-0 bg-white focus:ring-blue-500" id="google_translate_element"></div>
+          
+       </div>
+    </nav>
+
+
+    <!-- hero section --> 
+    <div class="relative w-full bg-cover bg-center" style="background-image: url('header.jpg'); height: 400px;"> <!-- Set a height for the hero section -->
+        <div class="flex justify-center items-center h-full">
+            <!-- Carousel wrapper -->
+            <div class="overflow-hidden w-full max-w-3xl">
+                <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
+                    <!-- Slide 1 -->
+                    <div class="min-w-full flex flex-col items-center justify-center p-4 bg-white bg-opacity-70 rounded-lg text-center"data-aos="fade-down">
+                        <h2 class="text-3xl font-extrabold mb-2 text-black">Invest now!</h2>
+                        <p class="mb-4 text-black">SwiftTrade tokenization offers asset ownership with blockchain-secured passive income</p>
+                        <input type="button" value="Register" class="bg-gradient-to-r from-pink-500 to-yellow-500 text-white font-bold py-2 px-4 rounded hover:from-pink-400 hover:to-yellow-400 transition-all">
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="min-w-full flex flex-col items-center justify-center p-4 bg-white bg-opacity-70 rounded-lg text-center"data-aos="zoom-in">
+                        <h2 class="text-3xl font-extrabold mb-2 text-black">SwiftTrade Japan</h2>
+                        <p class="mb-4 text-black">The most sophisticated AI-powered trading and investment system</p>
+                        <input type="button" value="Login" class="bg-gradient-to-r from-blue-500 to-green-500 text-white font-bold py-2 px-4 rounded hover:from-blue-400 hover:to-green-400 transition-all">
+                    </div>
+                    <!-- Add more slides as needed -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel navigation buttons -->
+        <button id="prev" class="absolute top-1/2 left-5 transform -translate-y-1/2 text-black text-4xl font-bold animate-bounce">
+            &#10094; <!-- Left arrow -->
+        </button>
+        <button id="next" class="absolute top-1/2 right-5 transform -translate-y-1/2 text-black text-4xl font-bold animate-bounce">
+            &#10095; <!-- Right arrow -->
+        </button>
+    </div>
+    
+    
+    <!-- NEW SECTION -->
+   <div class="relative z-10 flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-4 p-6"> <!-- Adjusted for responsiveness -->
+    <!-- First Box: Image -->
+    <div class="relative flex-shrink-0 w-full sm:w-1/2 border border-gray-300 rounded-lg shadow-lg overflow-hidden bg-white p-6"data-aos="fade-left"> 
+        <div class="h-32 flex items-center justify-center pt-6 pb-6">
+            <img src="third.jpg" alt="Company Image" class="object-contain max-h-full max-w-[80%] rounded-lg z-20">
+        </div>
+    </div>
+
+    <!-- Second Box: Text Content -->
+    <div class="flex flex-col justify-between w-full sm:w-1/2 p-6 border border-gray-300 rounded-lg shadow-lg bg-white"data-aos="fade-right"> 
+        <h1 class="text-xl font-bold mb-4 leading-relaxed tracking-wide">Company Profile</h1>
+        <p class="mb-6 leading-relaxed tracking-wide"data-aos="zoom-in">
+            SwiftTrade is a trading platform designed to make investing in institutional investment properties around the world simple, accessible, and instant. We offer access to safe asset-backed investments in secure stocks and shares in the world's strongest currencies.
+        </p>
+        <div class="flex items-center space-x-3 mb-8">
+            <i class="fa-sharp-duotone fa-solid fa-award text-gray-600"></i> 
+            <p class="text-gray-600">認定企業</p>
+        </div>
+        <button class="bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600 animate-pulse text-sm">READ MORE</button>
+    </div>
+</div>
+
+
+<!-- fourth section -->
+ <div class="relative z-50 flex justify-center p-8">
+    <div class="grid grid-cols-2 gap-0 w-full max-w-3xl border border-gray-300 rounded-lg shadow-lg bg-white"data-aos="fade-up">
+        <!-- First Box -->
+       <div class="flex flex-col items-center justify-center p-6 bg-gradient-to-r from-blue-500 to-green-500 text-white"data-aos="fade-left">
+            <h2 class="text-4xl font-bold mb-2">984k+</h2>
+            <p class="text-white">投資家</p>
+        </div> 
+
+        <!-- Second Box -->
+        
+        <div class="flex flex-col items-center justify-center p-6 bg-gradient-to-r from-purple-500 to-pink-500 text-white"data-aos="fade-right">
+            <h2 class="text-4xl font-bold mb-2">$673M</h2>
+            <p class="text-white">Trading Volume</p>
+        </div>
+
+        <!-- Third Box -->
+        <div class="flex flex-col items-center justify-center p-6 bg-gradient-to-r from-yellow-500 to-orange-500 text-white"data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-2">459k</h2>
+            <p class="text-white">Properties</p>
+        </div>
+
+        <!-- Fourth Box -->
+        <div class="flex flex-col items-center justify-center p-6 bg-gradient-to-r from-red-500 to-purple-500 text-white"data-aos="fade-down">
+            <h2 class="text-4xl font-bold mb-2">192</h2>
+            <p class="text-white">Support</p>
+        </div>
+    </div>
+</div>
+
+<!-- last section -->
+<div class="p-8 bg-black">
+    <!-- Section Title -->
+    <h3 class="text-lg font-bold text-gray-400 text-center mb-2"data-aos="fade-left">Our Services</h3>
+    <h1 class="text-4xl font-bold text-white text-center mb-10"data-aos="fade-up">What We Offer</h1>
+
+    <!-- Services Container -->
+    <div class="flex flex-wrap justify-center gap-8">
+        <!-- Service 1 -->
+        <div class="w-full md:w-1/3 flex flex-col items-center p-6 border border-gray-600 rounded-lg shadow-lg bg-gray-800"data-aos="fade-left">
+            <img src="stock.jpg" alt="Cryptocurrency Trading" class="h-40 w-40 object-contain mb-4 rounded-lg"data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-white mb-4">Cryptocurrency Trading</h2>
+            <p class="text-gray-400 text-center mb-4">We use an AI-powered trading system that can analyze the markets better than humans. We have revolutionized the global trading system to be more efficient, profitable, and smart.</p>
+            <a href="#" class="text-blue-500 font-bold hover:underline animate-pulse">Read more</a>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="w-full md:w-1/3 flex flex-col items-center p-6 border border-gray-600 rounded-lg shadow-lg bg-gray-800"data-aos="fade-right">
+            <img src="man.jpg" alt="Stocks and Shares" class="h-40 w-40 object-contain mb-4 rounded-lg"data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-white mb-4">Stocks and Shares</h2>
+            <p class="text-gray-400 text-center mb-4">A stock or share represents ownership in a company or legal entity and a proportionate right to its assets and earnings.</p>
+            <a href="#" class="text-blue-500 font-bold hover:underline animate-pulse">Read more</a>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="w-full md:w-1/3 flex flex-col items-center p-6 border border-gray-600 rounded-lg shadow-lg bg-gray-800"data-aos="fade-up">
+            <img src="image3.png" alt="Financial Planning" class="h-40 w-40 object-contain mb-4 rounded-lg"data-aos="fade-down">
+            <h2 class="text-2xl font-bold text-white mb-4">Financial Planning</h2>
+            <p class="text-gray-400 text-center mb-4">Financial planning is the comprehensive assessment of an investor's current and future financial position using known variables to project future cash flows.</p>
+            <a href="#" class="text-blue-500 font-bold hover:underline">Read more</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    <!-- JavaScript for Carousel Functionality -->
+    <script>
+        const carousel = document.getElementById("carousel");
+        const slides = carousel.children;
+        let currentIndex = 0;
+
+        document.getElementById("next").addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % slides.length; // Wrap around
+            updateCarousel();
+        });
+
+        document.getElementById("prev").addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length; // Wrap around
+            updateCarousel();
+        });
+
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    </script>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+    <!-- Register to the site Starts-->
+    <div class="ml-12 pt-8 leading-loose pb-12" data-aos="zoom-in">
+      <h1 class="text-4xl font-bold pb-8"data-aos="fade-up">
+      Register
+  </h1> 
+  <!-- Form section-->
+      <form class="flex space-x-4 max-md:block max-md:space-x-0">
+          <input class="p-2 w-2/5 border-2 rounded-lg max-md:w-72"type="name"placeholder="Enter your name"required>
+          <input class="p-2 border-2 rounded-lg w-2/5 max-md:w-72       max-md:mt-8"type="number"name="number"placeholder="Phone number"required>
+          <button onclick="window.location.href='register.html'" class="rounded-lg p-2 border-2 bg-orange-400 w-36 text-white animate-pulse max-md:mt-8"type="submit">SEND</button>
+      </form>
+  </div>
+  <!-- Register to the site Ends-->
+  <div class="bg-slate-100 px-8 pb-16" data-aos="fade-down">
+      <!-- why you should choose us Starts -->
+      <div class="pb-8 pt-12">
+      <h1 class="text-4xl font-bold max-md:text-2xl max-md:text-center" data-aos="zoom-in">Why Us?</h1>
+      </div>
+      <div class="grid grid-cols-3 gap-4 leading-loose max-md:block">
+          <!-- Number 1-->
+          <div class="border-2 text-center p-8 bg-white shadow-3xl h-72 max-md:mt-4"data-aos="fade-left">
+              <i class="fa-solid fa-headphones text-3xl font-bold max-md:text-xl animate-bounce"></i>
+              <h4 class="text-xl font-bold">24/7 support</h4>
+              <p>Our customer care service is available at all the time to attend to you and also offers profitable advice on the best investments programs.</p>
+          </div>
+          
+          <!-- Number 2 -->
+          <div class="border-2 text-center p-8 bg-white shadow-3xl h-72 max-md:mt-4"data-aos="fade-right">
+                  <i class="fa-solid fa-unlock-keyhole text-3xl font-bold max-md:text-xl animate-bounce"></i>
+                  <h4 class="text-xl font-bold">Strong Security</h4>
+                  <p>We offer an unbeatable interest on your investment within the shortest possible time.</p>
+              </div>
+              <!-- Number 3 -->
+              <div class="border-2 text-center p-8 bg-white shadow-3xl h-72 max-md:mt-4"data-aos="fade-up">
+                  <i class="fa-solid fa-key text-3xl font-bold max-md:text-xl animate-bounce"></i>
+                  <h4 class="font-bold text-xl">Secured Transactions</h4>
+                  <p>Your financial future is secured through our multiple investment packages that are suitable for any class.</p>
+              </div>
+              
+              <!-- Number 4-->
+              <div class="border-2 text-center p-8 bg-white shadow-3xl max-md:mt-4"data-aos="fade-down">
+                  <i class="fa-solid fa-spinner text-3xl font-bold max-md:text-xl animate-bounce                                           "></i>
+                  <h4 class="text-xl font-bold">Quick Returns</h4>
+                  <p>The system runs on highly encrypted algorithms to protect and secure our users accounts. We have experienced security experts who are constantly fixing threats.</p>
+              </div>
+              
+              <!-- Number 5-->
+              <div class="border-2 text-center py-8 px-4 bg-white shadow-3xl max-md:mt-4"data-aos="fade-left">
+                  <i class="fa-solid fa-globe text-3xl font-bold max-md:text-xl animate-bounce"></i>
+                  <h4 class="text-xl font-bold">Our Knowledge</h4>
+                  <p>The team of technicians swifttrade.com and the companies financial department monitor key cryptocurrency market trends. We are studying the processes of mining and search the system that will optimize cost and reduce net cost </p>
+              </div>
+              
+              <!-- Number 6 -->
+              <div class="border-2 text-center py-8 px-4 bg-white shadow-3xl max-md:mt-4"data-aos="fade-right">
+                  <i class="fa-solid fa-cloud text-3xl font-bold max-md:text-xl animate-bounce"></i>
+                  <h4 class="text-xl font-bold">Our Experience </h4>
+                  <p>Our team trades cryptocurrency, forex and Stocks since their entering into the wide circulation in 2016. It understand the Bitcoin pricing mechanism and monitor the main trends at the market.</p>
+              </div>
+      </div>
+  </div>
+  <!-- why you should choose us ends-->
+ 
+  <div class="pb-8">
+      <!-- what we offer starts-->
+      <div class="text-center leading-loose py-12 px-6">
+          <h2 class="font-bold text-3xl pb-8 max-md:text-xl"data-aos="zoom-in">We believe the power of cryptocurrency investments is in your hands and our motivations are clear</h2>
+          <p data-aos="fade-left">Swifttrades.com offers cryptocurrency investment and trading. With the Swifttrade system you can earn cryptocurrency. We help you manage and trade your assets with the most powerful and sophisticated trading system and pay you fair daily interest.</p>
+      </div>
+      <!-- what we offer ends-->
+      
+      <!-- Your gains-->
+      <!-- Number 1 -->
+      <div class="flex space-x-4 px-8 leading-loose max-md:block max-md:space-x-0">
+      <div class="border-2 p-8 shadow-3xl" data-aos="fade-up">
+          <i class="fa-solid fa-book-open font-bold text-2xl animate-bounce"></i>
+          <h2 class="text-xl font-bold">Learn cryptography</h2>
+          <p>Get customized resources to learn cryptocurrency</p>
+          <a href="register.html"class="text-orange-500 hover:text-black"><i class="fa-solid fa-play mr-2"></i>Get started</a>
+      </div>
+      <!-- Number 2 -->
+      <div class="border-2 p-8 shadow-3xl max-md:mt-8" data-aos="fade-left">
+          <i class="fa-solid fa-sack-dollar font-bold text-2xl animate-bounce"></i>
+          <h2 class="text-xl font-bold">Invest in cryptocurrency</h2>
+          <p>The easy way to trade and invest in cryptocurrency</p>
+          <a href="register.html"class="text-orange-500 hover:text-black"><i class="fa-solid fa-play mr-2 animate-bounce"></i>Start now</a>
+      </div>
+      <!-- Number 3-->
+      <div class="border-2 p-8 shadow-3xl max-md:mt-8"data-aos="fade-down">
+          <i class="fa-solid fa-coins font-bold text-2xl animate-bounce"></i>
+          <h2 class="text-xl font-bold">Earn in cryptocurrency</h2>
+          <p>Earn interest on your crypto assets</p>
+          <a href="register.html"class="text-orange-500 hover:text-black"><i class="fa-solid fa-play mr-2 animate-bounce"></i>Get Started now</a>
+      </div>
+      </div>
+  </div>
+  <!-- Your gains ends -->
+  
+  <!-- Getting started -->
+  <div class="flex bg-slate-100 py-16 px-8 max-md:block">
+      <div class="grid leading-loose">
+          <h2 class="font-bold text-4xl max-md:text-2xl"data-aos="fade-left">Get started with your trading and earn income today
+          </h2>
+          <p class="w-fit"data-aos="zoom-in">
+Our trading system does not offer you a very high and unrealistic return on investment. It offers only the most possible, realistic, and verified return of investment to all our investors no matter the condition of the market.</p>
+      </div>
+      <!-- Getting started ends-->
+        <!-- Image -->
+  <div class="w-full mr-8">
+    <img src="header.jpg" alt="Image is here" class="rounded-lg shadow-3xl"data-aos="fade-right">
+  </div>
+  </div>
+  <div>
+      <!-- About our investment plans-->
+      <div class="text-center leading-loose p-8">
+          <h2 class="font-bold text-4xl max-md:text-xl"data-aos="zoom-in">Investment Plan</h2>
+          <p data-aos="fade-left">We believe a wealth management system should work for everyone, which is why we offer products that enable you to start investing at your own pace and on your own terms.</p>
+      </div>
+      <!-- Here are the investment plans-->
+      <div class="grid grid-cols-3 gap-2 mx-6 max-md:block">
+      <div class="border-2 w-72 text-center shadow-3xl shadow-black-500" data-aos="fade-up">
+          <!-- Starter plans is for beginners -->
+          <div class="bg-neutral-600 text-white py-8">
+          <h3 class="font-bold text-2xl">Starter</h3>
+          <p>Duration 1week</p>
+          </div>
+          <div class="p-4">
+                    <h1 class="text-5xl font-bold max-md:text-2xl">6%</h1>
+                    <p>ROI DAILY</p>
+                </div>
+                    <div class="leading-loose">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>Min, Possible deposit $200</p>
+                    <hr class="mx-8 pb-4">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>Max, Possible deposit $999</p>
+                    <hr class="mx-8 pb-4">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>5% Referral Bonus</p>
+                    <hr class="mx-8 pb-4">
+                <div>
+                    <button class="bg-neutral-500 shadow-3xl hover:bg-orange-500 text-white p-2 mb-8 mt-2  rounded" type="submit">Invest Now</button>
+                </div>
+      </div>
+      </div>
+      <!-- Standard  plans for Amateur-->
+      <div class="border-2 w-72 text-center shadow-xl shadow-black-500 max-md:mt-8"data-aos="fade-down">
+      <div class="bg-neutral-600 text-white py-8">
+          <h3 class="font-bold text-2xl">Standard</h3>
+          <p>Duration 1week</p>
+          </div>
+          <div class="p-4">
+                    <h1 class="text-5xl font-bold max-md:text-2xl">8%</h1>
+                    <p>ROI DAILY</p>
+                </div>
+                    <div class="leading-loose">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>Min, Possible deposit $1000</p>
+                    <hr class="mx-8 pb-4">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>Max, Possible deposit $9,999</p>
+                    <hr class="mx-8 pb-4">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>5% Referral Bonus</p>
+                    <hr class="mx-8 pb-4">
+                <div>
+                    <button class="bg-neutral-500 text-white p-2 mb-8 mt-2  rounded hover:bg-orange-500 shadow-3xl" type="submit">Invest Now</button>
+                </div>
+      </div>
+      </div>
+      <!-- Professional plans -->
+      <div class="border-2 w-72 text-center shadow-3xl shadow-black-500 max-md:mt-8"data-aos="fade-left">
+      <div class="bg-neutral-600 text-white py-8">
+          <h3 class="font-bold text-2xl">Professional</h3>
+          <p>Duration 2weeks</p>
+          </div>
+          <div class="p-4">
+                    <h1 class="text-5xl font-bold max-md:text-2xl">8%</h1>
+                    <p>ROI DAILY</p>
+                </div>
+                    <div class="leading-loose">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>Min, Possible deposit $10,000</p>
+                    <hr class="mx-8 pb-4">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>Max, Possible deposit $49,999</p>
+                    <hr class="mx-8 pb-4">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>8% Referral Bonus</p>
+                    <hr class="mx-8 pb-4">
+                <div>
+                    <button class="bg-neutral-500 text-white p-2 mb-8 mt-2  rounded hover:bg-orange-500 shadow-3xl"type="submit">Invest Now</button>
+                </div>
+      </div>
+      </div>
+      <!-- Premium plans-->
+      <div class="border-2 w-72 text-center mt-8 shadow-3xl shadow-black-500" data-aos="fade-right">
+      <div class="bg-orange-400 text-white py-8">
+          <h3 class="font-bold text-2xl">Premium</h3>
+          <p>Duration 3weeks</p>
+          </div>
+          <div class="p-4">
+                    <h1 class="text-5xl font-bold max-md:text-2xl">10%</h1>
+                    <p>ROI DAILY</p>
+                </div>
+                    <div class="leading-loose">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>Min, Possible deposit $50,000</p>
+                    <hr class="mx-8 pb-4">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>Max, Possible deposit $99,999</p>
+                    <hr class="mx-8 pb-4">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>8% Referral Bonus</p>
+                    <hr class="mx-8 pb-4">
+                    <button class="bg-neutral-500 text-white p-2 mb-8 mt-2  rounded shadow-3xl hover:bg-orange-500" type="submit">Invest Now</button>
+      </div>
+      </div>
+      <!-- Infinity plans is for unlimited trades-->
+      <div class="border-2 w-72 text-center mt-8 shadow-3xl shadow-black-500" data-aos="fade-left">
+      <div class="bg-orange-400 text-white py-8">
+          <h3 class="font-bold text-2xl">Infinity</h3>
+          <p>Duration 1month</p>
+          </div>
+          <div class="p-4">
+                    <h1 class="text-5xl font-bold max-md:text-2xl">12%</h1>
+                    <p>ROI DAILY</p>
+                </div>
+                    <div class="leading-loose">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>Min, Possible deposit $100,000</p>
+                    <hr class="mx-8 pb-4">
+                    <p><i class="fa-solid fa-circle-check animate-bounce"></i>Max, Possible deposit Unlimited</p>
+                    <hr class="mx-8 pb-4">
+                    <p><i class="fa-solid fa-circle-check pb-4 animate-bounce"></i>10% Referral Bonus</p>
+                    <hr class="mx-8 pb-4">
+                    <button class="bg-neutral-500 text-white p-2 mb-8 mt-2  rounded hover:bg-orange-500 shadow-3xl" type="submit">Invest Now</button>
+      </div>
+  </div>
+  </div>
+  <!-- Investment plan ended-->
+  
+  <!-- our mission starts-->
+  <div class="pt-20 leading-loose pl-2" data-aos="zoom-in">
+      <h3 class="font-bold text-3xl">Our Mission</h3>
+      <p class=" text-xl">We provide the best solutions with AI and experts</p>
+  </div>
+  <!-- Here are the mission we have for you-->
+  <div class="flex space-x-4 py-12 px-8 max-md:block">
+      <!-- Image -->
+      <img class="w-2/5 pt-4 max-md:w-full"src="charts.jpg" alt=""data-aos="fade-left">
+      <div class="grid max-md:pt-8" data-aos="fade-left">
+      <h3 class="font-bold text-xl"data-aos="zoom-in"><i class="fa-solid fa-chart-line text-2xl text-orange-500 p-2 animate-bounce"></i>Grow your wealth with reputable and proof-based strategies.</h3>
+      <p>Welcome to SwiftTrade, your all-in-one destination for navigating the world of investments. Specializing in Cryptocurrency, stocks, Forex, retirement planning, gold, medical cannabis, and oil and gas, SwiftTrade is your gateway to a diverse range of lucrative opportunities.
+
+<p><i class="fa-solid fa-circle-dot pr-2 animate-bounce"></i>Automated Returns</p>
+<p><i class="fa-solid fa-circle-dot pr-2 animate-bounce"></i>Steady Growth</p>
+<p><i class="fa-solid fa-circle-dot pr-2 animate-bounce"></i>Maximum Efficiency</p>
+<p><i class="fa-solid fa-circle-dot pr-2 animate-bounce"></i>Reliable System</p>
+  </div>
+  </div>
+  <!-- Our mission ends-->
+  
+  <!-- This is how it works -->
+  <div class="px-6 py-12 bg-slate-100">
+      <div class="text-center leading-loose"data-aos="zoom-in">
+      <h3 class="font-bold text-4xl max-md: text-2xl">How it works</h3>
+      <p>Purchase financial assets that have the potential to grow in value while adhering to a long-term investment plan.</p>
+      </div>
+      <!-- Step 1-->
+      <div class="flex space-x-4 py-16 max-md:block max-md:space-x-0">
+          <div class="border-2 shadow-3xl leading-loose text-lg text-center p-8"data-aos="fade-up">
+              <p>Sign Up Register your free account and start your first steps to earn daily income from your investment plans and stock market projects.</p>
+          </div>
+          <!-- Step 2-->
+          <div class="border-2 shadow-3xl leading-loose text-lg text-center p-8 max-md:mt-8"data-aos="fade-left">
+              <p>Fund Account: You can deposit funds into your account to fund your registered account and buy shares and earn in any of the projects.</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="border-2 shadow-3xl leading-loose text-center text-lg p-8 max-md:mt-8"data-aos="fade-down">
+              <p>Sign up for a package
+Choose the appropriate level percentage share, which ranges from levels 1-3 in our planning projects, to invest in to start earning.</p>
+          </div>
+          <!-- Step 4 -->
+          <div class="border-2 shadow-3xl leading-loose text-center text-lg p-8 max-md:mt-8"data-aos="fade-right">
+              <p>Withdrawal After a successful investment, you can withdraw your profits when the investment period ends, or you can reinvest them.</p>
+          </div>
+      </div>
+  </div>
+  <!-- This is how it works ends-->
+  
+  <!-- Your one-stop guide to cryptocurrency trading -->
+  <div class="leading-loose ">
+      <div class="text-center my-20 px-8"data-aos="zoom-in">
+          <h3 class="font-bold text-2xl">Your one-stop guide to cryptocurrency trading</h3>
+          <p class="text-lg leading-loose">The cryptocurrency market is beginning to attract the attention of retail and institutional investors,<br> and with over 10,000 cryptocurrencies available at the start of 2021, traders have ample opportunities to speculate on these volatile assets.</p>
+      </div>
+        <button onclick="window.location.href='register.html'"class="bg-orange-500 text-white p-2 rounded mb-20 ml-12 animate-pulse"data-aos="fade-left" type="submit">Get in touch </button>
+        <div class="flex -space-x-14"data-aos="fade-up">
+            <!-- Image -->
+      <img class="w-60 border-r-8 mix-blend-mutiply border-solid rounded ml-12" src="forex.jpg " alt="">
+      <div class="mix-blend-multiply bg-orange-500 rounded-xl border-2 w-20"></div>
+</div>
+  </div>
+  <!-- Your one-stop guide to cryptocurrency trading Ends -->
+  
+  <!-- Trading Analysis starts-->
+  <h2 class=" font-bold text-3xl mb-4 mt-16 ml-4"data-aos="fade-right">Live Trading Analysis</h2>
+  <div class="flex px-4 space-x-4 max-md:block max-md:space-x-0"data-aos="fade-left">
+     <!--Cryptocurrency TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="#"target="_blank"><span class="white-text">Cryptocurrency TradingView</span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+  {
+  "width": "100%",
+  "height": 550,
+  "defaultColumn": "overview",
+  "screener_type": "crypto_mkt",
+  "displayCurrency": "USD",
+  "colorTheme": "white",
+  "locale": "en"
+}
+  </script>
+</div>
+<!--Cryptocurrency TradingView Widget END -->
+
+<!--Forex TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="#" target="_blank"><span class="white-text">Forex-Trading Market View </span></a></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+  {
+  "width": "100%",
+  "height": "550",
+  "currencies": [
+    "EUR",
+    "USD",
+    "JPY",
+    "GBP",
+    "CHF",
+    "AUD",
+    "CAD",
+    "NZD"
+  ],
+  "isTransparent": false,
+  "colorTheme": "white",
+  "locale": "en",
+  "backgroundColor": "white"
+}
+  </script>
+</div>
+<!--Forex TradingView Widget END --> 
+  </div>
+  <!-- Trading Analysis ends-->
+  
+  <!-- When to buy Bitcoin starts-->
+  <div class="my-20 bg-slate-100">
+      <h3 class="text-center font-bold text-3xl py-16"data-aos="fade-down"><span class="text-orange-500">When</span> to buy Bitcoin</h3>
+      <video controls muted src="swifttradevid.mp4"width="100%">
+  </div>
+  <!-- When to buy Bitcoin ends-->
+  
+  <!-- Our reviews and rate starts-->
+  <div class="flex space-x-8 divide-x my-16 max-md:block max-md:space-x-0"data-aos="fade-left">
+      <div class="pl-8">
+      <h3 class="font-bold text-orange-500 text-xl">We Are Business Who Cares, And it Shows</h3>
+<p>OVER 873,000 “5 STARS” REVIEWS AND CLIMBING</p>
+</div>
+      <div class="flex pl-4 max-md:mt-8">
+         <img class="w-16 animate-bounce"src="yelp.png" alt="">
+          <span class="block px-4"><h3>Rate Us on Yelp</h3>
+<p>39,248 reviews</p></span>
+      </div>
+      <div class="flex pl-4 max-md:mt-8">
+          <img class="w-16 animate-bounce" src="logo-google.png" alt="">
+          
+<span class="block px-4"><h3>Rate Us on Google</h3>
+<p>761,306 reviews</p></span>
+      </div>
+  </div>
+  <!-- Our reviews and rate ends-->
+  
+  <!-- Online Reviews  starts-->
+  <div class="text-center my-12">
+      <h2 class="font-bold text-2xl">Online <span class="text-orange-500">Testimonials</span></h2>
+      <p>What our clients say about our wise investment advice and on-going service.</p>  </div>
+      <!-- Our investors reviews online starts-->
+      <div class="overflow-hidden">
+  <div class="flex space-x-4 animate-slide mb-20 ">
+      <!-- Investor 1 -->
+    <div class=" bg-slate-100 rounded p-4 shadow-3xl ">
+        <div class="w-96 max-md:w-60">
+        <img class="w-8 rounded-full"src="man1.png" alt="">
+                  <h4 class="font-bold">David Reed</h4>
+                   <hr>
+                  <p class="leading-loose">I can confidently say that it has been a good experience with swifttrade.com with my already achieved prospectus , the level of services and organization have no match</p>
+                  </div>
+                  </div>
+                  <!-- Investor 2 -->
+    <div class="p-4 bg-slate-100 rounded shadow-3xl">
+        <div class="w-96 max-md:w-60">
+        <img class="w-8 rounded-full"src="man2.png" alt="">
+                  <h4 class="font-bold">Niel Elamir</h4>
+                  <hr>
+                  <p class="leading-loose">swifttrade.com has helped me achieve alot even during the pandemic, i started investing at the peak of the pandemic and have gotten alot of returns now, thanks to this amazing platform i have enrolled my son in an online university and kick start my dreams to own a bakery.</p>
+    </div>
+    </div>
+    <!-- Investor 3 -->
+    <div class="p-4 bg-slate-100 rounded shadow-3xl">
+        <div class="w-96 max-md:w-60">
+        <img class="w-8 rounded-full"src="man3.png" alt="">
+                  <h4 class="font-bold">Caroline Wagner</h4>
+                  <hr>
+                  <p class="leading-loose">swifttrade.com has been a financial liberator for me, i have been able to attain financial freedom and it's just the best at this point. The simplicity and efficiency of most financial institutions have been a norms here.</p>
+    </div>
+    </div>
+    <!-- Investor 4 -->
+    <div class="p-4 rounded bg-slate-100 shadow-3xl">
+        <div class="w-96 max-md:w-60">
+        <img class="w-8 rounded-full"src="man4.png" alt="">
+                  <h4 class="font-bold">Mark Sparks</h4>
+                  <hr>
+                  <p class="leading-loose">From the time I first connected with swifttrade.com many years ago, the feel-good element was present. Professional, friendly, and proactive advice and suggestions, have always been provided in the best interests of the client. I continue to be very happy with all interactions with swifttrade, from my designated Financial Planner, to whoever else might be on the end of a telephone call or e-mail.</p>
+                  </div>
+                  </div>
+     <!-- Our investors review online ends-->
+    </div>
+  <!-- Online reviews ends-->
+  <!-- A little js code for the animation begin-->
+  <style>
+  @keyframes slide {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .animate-slide {
+    animation: slide 10s linear infinite;
+  }
+</style> 
+  <!-- A little js code for the animation ends-->
+  
+   <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+      "proName": "FOREXCOM:SPXUSD",
+      "title": "S&P 500 Index"
+    },
+    {
+      "proName": "FOREXCOM:NSXUSD",
+      "title": "US 100 Cash CFD"
+    },
+    {
+      "proName": "FX_IDC:EURUSD",
+      "title": "EUR to USD"
+    },
+    {
+      "proName": "BITSTAMP:BTCUSD",
+      "title": "Bitcoin"
+    },
+    {
+      "proName": "BITSTAMP:ETHUSD",
+      "title": "Ethereum"
+    }
+  ],
+  "showSymbolLogo": true,
+  "isTransparent": false,
+  "displayMode": "adaptive",
+  "colorTheme": "white",
+  "locale": "en"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+       <div class="bg-[url('showcase.jpg')] bg-cover bg-center h-auto pl-4 py-20 w-full"data-aos="fade-right">
+  <!-- Your content here -->
+       <h2 class="pt-12 text-orange-500 text-2xl font-bold">We're Delivering the Best Customer Experience</h2>
+       <h1 class="text-3xl font-bold text-white">Get In Touch</h1>
+       <button onclick="window.location.href='register.html'"class="p-2 bg-orange-500 text-white rounded-lg ml-96 max-md:ml-24 animate-pulse max-md:mt-8"type ="submit">Get in touch</button>
+   </div>
+   <!-- The Footer Starts-->
+   <div class=" bg-indigo-950 p-12">
+           <div class="font-bold text-xl text-orange-500 flex justify-between leading-loose max-md:block"data-aos="zoom-in">
+               <div>
+               <h3 class="">SWIFTTRADE</h3>
+               <p class="text-white">SwiftTrade is the world’s largest digital currency<br> asset manager and leading social trading <br>platform. With a proven track record and <br>unrivaled experience, we give investors <br>the tools to make informed investing <br>decisions in a burgeoning asset class.</p>
+               </div>
+              
+               <div class="max-md:mt-8">
+               <h3 class="">Other services</h3>
+               <div class="list-none text-white">
+               <li><a class="hover:text-blue-500" href="register.html">Forex trading</a></li>
+               <li><a class="hover:text-blue-500" href="register.html">Stock Trading</a></li>
+               <li><a class="hover:text-blue-500" href="register.html">Gold Investment</a></li>
+               <li><a class="hover:text-blue-500" href="register.html">Real estate</a></li>
+               <li><a class="hover:text-blue-500" href="register.html">Retirement planning</a></li>
+               </div>
+               </div>
+               <div class="max-md:mt-8">
+               <h3 class="">Quick links</h3>
+               <div class="list-none text-white">
+               <li><a href="#">Privacy & policy</a></li>
+               <li><a href="#">Terms & Conditions</a></li>
+               <li><a href="#">Learn</a></li>
+               <li><a href="#">FAQ</a></li>
+               <li><a href="#">Contact Us</a></li>
+           </div>
+           </div>
+       <!-- The Footer Ends -->
+</body>
+</html>

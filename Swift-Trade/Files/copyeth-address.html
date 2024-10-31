@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wallet Deposit</title>
+  <script>
+    function copyToClipboard() {
+      const walletAddress = document.getElementById("wallet-address");
+      navigator.clipboard.writeText(walletAddress.textContent)
+        .then(() => {
+          alert("Wallet address copied to clipboard!");
+        })
+        .catch(err => {
+          console.error("Failed to copy: ", err);
+        });
+    }
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+ <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen" style="font-family: 'Roboto', sans-serif;">
+  <div class="bg-white shadow-lg rounded-lg p-6 max-w-full text-center">
+       <div id="google_translate_element"></div>
+    <h1 class="text-2xl font-bold text-gray-800 my-4">Deposit to Wallet</h1>
+    <p class="text-sm text-gray-600 mb-2">Click to copy the wallet address</p>
+    <p class="leading-loose text-sm text-gray-600">
+Send deposit amount to the below information and submit required proof to the system's admin. The admin will check the request and will match the submitted proof . After verification, if everything is ok, the admin will approve the request and the amount will be deposited to your Deposit Wallet.</p>
+    <div class="flex items-center justify-center mb-4">
+      <span id="wallet-address" class="text-lg font-mono bg-gray-200 rounded px-4 py-2 w-full">0x97F6C3D0B96BD492c59879260dE176423388b0F4</span>
+      <button onclick="copyToClipboard()" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Copy
+      </button>
+    </div>
+    <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Proceed</button>
+  </div>
+</body>
+</html>

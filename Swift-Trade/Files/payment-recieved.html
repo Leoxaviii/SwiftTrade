@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment verification</title>
+     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+     <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen"style="font-family: 'Roboto', sans-serif;">
+   <div class="max-w-lg mx-auto p-4 border rounded-lg shadow-md bg-white">
+       <!-- language translation-->
+       <div id="google_translate_element"></div>
+  <h1 class="text-xl font-medium mt-4">Investor Receipt Submission</h1>
+  <p class="leading-loose text-sm text-gray-600 mb-4">
+Submit required proof to the system's admin. The admin will check the request and will match the submitted proof .</p>
+  <form action="/submit-receipt" method="POST" enctype="multipart/form-data">
+    <!-- Name -->
+    <label class="block mb-2 text-sm font-medium">Full Name</label>
+    <input type="text" name="name" class="w-full p-2 mb-4 border rounded" placeholder="Enter your name" required>
+
+    <!-- Email -->
+    <label class="block mb-2 text-sm font-medium">Email Address</label>
+    <input type="email" name="email" class="w-full p-2 mb-4 border rounded" placeholder="Enter your email" required>
+
+    <!-- Amount -->
+    <label class="block mb-2 text-sm font-medium">Amount Invested</label>
+    <input type="number" name="amount" class="w-full p-2 mb-4 border rounded" placeholder="Investment amount" required>
+
+    <!-- File Upload -->
+    <label class="block mb-2 text-sm font-medium">Upload Payment Receipt</label>
+    <input type="file" name="receipt" accept=".pdf,.jpg,.jpeg,.png" class="w-full p-2 mb-4 border rounded" required>
+
+    <!-- Submit Button -->
+    <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">Submit Receipt</button>
+  </form>
+</div> 
+</body>
+</html>

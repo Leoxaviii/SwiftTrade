@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Investment Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/563b3d322c.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 text-white">
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+      "proName": "FOREXCOM:SPXUSD",
+      "title": "S&P 500 Index"
+    },
+    {
+      "proName": "FOREXCOM:NSXUSD",
+      "title": "US 100 Cash CFD"
+    },
+    {
+      "proName": "FX_IDC:EURUSD",
+      "title": "EUR to USD"
+    },
+    {
+      "proName": "BITSTAMP:BTCUSD",
+      "title": "Bitcoin"
+    },
+    {
+      "proName": "BITSTAMP:ETHUSD",
+      "title": "Ethereum"
+    }
+  ],
+  "showSymbolLogo": true,
+  "isTransparent": false,
+  "displayMode": "adaptive",
+  "colorTheme": "dark",
+  "locale": "en"
+}
+  </script>
+    <!-- Header -->
+    <header class=" shadow p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-white">Welcome To Your Dashboard</h1>
+            <div class="flex items-center space-x-4">
+                <button class="bg-blue-400 text-white px-4 py-2 rounded-md">Profile</button>
+                <button class="bg-blue-400 px-4 py-2 text-white rounded-md">Back</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Layout -->
+    <div class="flex flex-col md:flex-row">
+
+        <!-- Sidebar -->
+        <aside class="text-white w-full md:w-1/4 h-full p-6 shadow-md">
+            <nav class="space-y-4">
+                <a href="#" class="block text-white font-semibold py-2 px-4 rounded bg-blue-400"><i class="fa-solid fa-wallet animate-bounce pr-2"></i>Overview</a>
+                 <a href="#" class="block text-white font-semibold py-2 px-4 rounded hover:bg-blue-400"><i class="fa-solid fa-sack-dollar animate-bounce pr-2"></i>Deposit</a>
+                <a href="#" class="block text-white font-semibold py-2 px-4 rounded hover:bg-blue-400"><i class="fa-solid fa-receipt animate-bounce pr-2"></i>Withdrawals</a>
+                <a href="#" class="block text-white font-semibold py-2 px-4 rounded hover:bg-blue-400"><i class="fa-solid fa-yen-sign animate-bounce pr-2"></i>Transactions</a>
+                <a href="#" class="block text-white font-semibold py-2 px-4 rounded hover:bg-blue-400"><i class="fa-solid fa-coins animate-bounce pr-2"></i>Earnings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 p-6">
+            <!-- Summary Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div class=" p-6 rounded-lg shadow-2xl">
+                    <h2 class="text-lg font-semibold text-white">Total Balance</h2>
+                    <p class="mt-4 text-3xl font-bold text-white">$0.00</p>
+                </div>
+                <div class=" p-6 rounded-lg shadow-2xl">
+                    <h2 class="text-lg font-semibold text-white">Investments</h2>
+                    <p class="mt-4 text-3xl font-bold text-white">$0.00</p>
+                </div>
+                <div class=" p-6 rounded-lg shadow-2xl">
+                    <h2 class="text-lg font-semibold text-white">Returns</h2>
+                    <p class="mt-4 text-3xl font-bold text-white">$0.00</p>
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class=" p-6 rounded-lg shadow-md mb-6">
+                <h2 class="text-lg font-semibold text-white mb-4">Investment Performance</h2>
+                <canvas id="investmentChart"></canvas>
+            </div>
+
+            <!-- Transactions Table -->
+            <div class=" p-6 rounded-lg shadow-2xl">
+                <h2 class="text-lg font-semibold text-white mb-4">Recent Transactions</h2>
+                <table class="min-w-full table-auto">
+                    <thead>
+                        <tr>
+                            <th class="px-4 py-2 text-left text-white">Date</th>
+                            <th class="px-4 py-2 text-left text-white">Type</th>
+                            <th class="px-4 py-2 text-left text-white">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t">
+                            <td class="px-4 py-2">Oct 1, 2024</td>
+                            <td class="px-4 py-2">Buy</td>
+                            <td class="px-4 py-2">$5,000</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="px-4 py-2">Sep 22, 2024</td>
+                            <td class="px-4 py-2">Sell</td>
+                            <td class="px-4 py-2">$2,000</td>
+                        </tr>
+                        <tr class="border-t">
+                            <td class="px-4 py-2">Sep 15, 2024</td>
+                            <td class="px-4 py-2">Buy</td>
+                            <td class="px-4 py-2">$10,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chart JS for Investment Performance -->
+    <script>
+        const ctx = document.getElementById('investmentChart').getContext('2d');
+        const investmentChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Investment Value',
+                    data: [20000, 25000, 23000, 28000, 30000, 35000],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    fill: true,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    
+    <!-- Trading Analysis starts-->
+    <div class="bg-gray-800 py-8">
+  <h2 class=" font-bold text-3xl mb-4 mt-16 ml-4 text-center text-white"data-aos="fade-right">Live Trading Analysis</h2>
+  <div class="px-4 max-md:block max-md:space-x-0">
+      
+     <!--Cryptocurrency TradingView Widget BEGIN -->
+    <div class="p-4 bg-gray-800 shadow-md">
+    <div class="text-center p-4 text-white">
+      <div class="text-lg pb-4font-bold">Crypto Trading Dashboard</div>
+      <div>
+        <input type="text" placeholder="Search Crypto Pair" class="p-2 rounded-lg bg-gray-700 text-white">
+      </div>
+      <div class="space-x-4 pt-4 leading-loose">
+        <span>BTC/USD: <span class="text-green-400">+1.52%</span></span>
+        <span>ETH/USD: <span class="text-red-400">-0.73%</span></span>
+        <span>BNB/USD: <span class="text-green-400">+0.89%</span></span>
+      </div>
+    </div>
+    </div>
+
+  <!-- Main Section -->
+  <div class="container mx-auto p-4 text-white">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Cryptocurrency Information -->
+      <div class="lg:col-span-1 bg-gray-800 p-4 rounded-lg shadow-md">
+          
+          <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+  {
+  "symbols": [
+    [
+      "BINANCE:BTCUSDT|1D"
+    ],
+    [
+      "BINANCE:ETHUSDT|1D"
+    ],
+    [
+      "BINANCE:SOLUSDT|1D"
+    ]
+  ],
+  "chartOnly": false,
+  "width": "100%",
+  "height": "400",
+  "locale": "en",
+  "colorTheme": "dark",
+  "autosize": true,
+  "showVolume": false,
+  "showMA": false,
+  "hideDateRanges": false,
+  "hideMarketStatus": false,
+  "hideSymbolLogo": false,
+  "scalePosition": "right",
+  "scaleMode": "Normal",
+  "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+  "fontSize": "10",
+  "noTimeScale": false,
+  "valuesTracking": "1",
+  "changeMode": "price-and-percent",
+  "chartType": "area",
+  "maLineColor": "#2962FF",
+  "maLineWidth": 1,
+  "maLength": 9,
+  "headerFontSize": "medium",
+  "lineWidth": 2,
+  "lineType": 0,
+  "dateRanges": [
+    "1d|1",
+    "1m|30",
+    "3m|60",
+    "12m|1D",
+    "60m|1W",
+    "all|1M"
+  ]
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+          
+        </div>
+        <ul class="text-sm space-y-2">
+          <li>Daily High: $35,100</li>
+          <li>Daily Low: $33,900</li>
+          <li>24h Change: +$520</li>
+          <li>Market Cap: $654B</li>
+          <li>Circulating Supply: 18.7M BTC</li>
+        </ul>
+     <!-- </div>
+      </div>-->
+      <!-- Live Chart Section -->
+      <div class="lg:col-span-2 bg-gray-800 p-4 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold">Live Price Chart</h2>
+        <div class="bg-gray-700 h-64 rounded-lg flex items-center justify-center">
+          <!-- Placeholder for cryptocurrency live chart -->
+             
+          <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+  <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+  {
+  "autosize": true,
+  "symbol": "BINANCE:BTCUSDT",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "dark",
+  "style": "1",
+  "locale": "en",
+  "allow_symbol_change": true,
+  "calendar": false,
+  "support_host": "https://www.tradingview.com"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+          
+        </div>
+        <div class="mt-4 flex justify-between">
+          <button class="p-2 bg-gray-700 rounded-lg">1H</button>
+          <button class="p-2 bg-gray-700 rounded-lg">1D</button>
+          <button class="p-2 bg-gray-700 rounded-lg">1W</button>
+          <button class="p-2 bg-gray-700 rounded-lg">1M</button>
+          <button class="p-2 bg-gray-700 rounded-lg">1Y</button>
+        </div>
+      </div>
+
+      <!-- Trade Panel -->
+      <div class="lg:col-span-1 bg-gray-800 p-4 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold">Trade BTC/USD</h2>
+        <form class="space-y-4 mt-4">
+          <div>
+            <label class="block">Order Type</label>
+            <select class="p-2 w-full rounded-lg bg-gray-700">
+              <option>Market Order</option>
+              <option>Limit Order</option>
+              <option>Stop-Loss Order</option>
+            </select>
+          </div>
+          <div>
+            <label class="block">Position</label>
+            <select class="p-2 w-full rounded-lg bg-gray-700">
+              <option>Buy</option>
+              <option>Sell</option>
+            </select>
+          </div>
+          <div>
+            <label class="block">Amount (BTC)</label>
+            <input type="number" class="p-2 w-full rounded-lg bg-gray-700" placeholder="Enter amount">
+          </div>
+          <div>
+            <label class="block">Price (USD)</label>
+            <input type="text" class="p-2 w-full rounded-lg bg-gray-700" placeholder="Current price" value="$0.00" readonly>
+          </div>
+          <div>
+            <label class="block">Stop Loss (Optional)</label>
+            <input type="text" class="p-2 w-full rounded-lg bg-gray-700" placeholder="Enter stop loss price">
+          </div>
+          <div>
+            <label class="block">Take Profit (Optional)</label>
+            <input type="text" class="p-2 w-full rounded-lg bg-gray-700" placeholder="Enter take profit price">
+          </div>
+          <button class="w-full p-2 bg-green-500 rounded-lg hover:bg-green-600">Place Trade</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Watchlist Section -->
+   <div class="p-4 my-6 rounded-lg shadow-md">
+      <h2 class="text-xl font-bold text-white">Watchlist</h2>
+             <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+  {
+  "colorTheme": "dark",
+  "dateRange": "12M",
+  "showChart": true,
+  "locale": "en",
+  "width": "100%",
+  "height": "550",
+  "largeChartUrl": "",
+  "isTransparent": false,
+  "showSymbolLogo": true,
+  "showFloatingTooltip": false,
+  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+  "gridLineColor": "rgba(42, 46, 57, 0)",
+  "scaleFontColor": "rgba(209, 212, 220, 1)",
+  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+  "tabs": [
+    {
+      "title": "Indices",
+      "symbols": [
+        {
+          "s": "BINANCE:BTCUSDT",
+          "d": "BTC"
+        },
+        {
+          "s": "BINANCE:ETHUSDT",
+          "d": "ETH"
+        },
+        {
+          "s": "BINANCE:SOLUSDT",
+          "d": "Solana"
+        },
+        {
+          "s": "BINANCE:BNBUSDT",
+          "d": "BNB"
+        }
+      ],
+      "originalTitle": "Indices"
+    },
+    {
+      "title": "Futures",
+      "symbols": [
+        {
+          "s": "CME_MINI:ES1!",
+          "d": "S&P 500"
+        },
+        {
+          "s": "CME:6E1!",
+          "d": "Euro"
+        },
+        {
+          "s": "COMEX:GC1!",
+          "d": "Gold"
+        },
+        {
+          "s": "NYMEX:CL1!",
+          "d": "WTI Crude Oil"
+        },
+        {
+          "s": "NYMEX:NG1!",
+          "d": "Gas"
+        },
+        {
+          "s": "CBOT:ZC1!",
+          "d": "Corn"
+        }
+      ],
+      "originalTitle": "Futures"
+    },
+    {
+      "title": "Bonds",
+      "symbols": [
+        {
+          "s": "CBOT:ZB1!",
+          "d": "T-Bond"
+        },
+        {
+          "s": "CBOT:UB1!",
+          "d": "Ultra T-Bond"
+        },
+        {
+          "s": "EUREX:FGBL1!",
+          "d": "Euro Bund"
+        },
+        {
+          "s": "EUREX:FBTP1!",
+          "d": "Euro BTP"
+        },
+        {
+          "s": "EUREX:FGBM1!",
+          "d": "Euro BOBL"
+        }
+      ],
+      "originalTitle": "Bonds"
+    },
+    {
+      "title": "Forex",
+      "symbols": [
+        {
+          "s": "FX:EURUSD",
+          "d": "EUR to USD"
+        },
+        {
+          "s": "FX:GBPUSD",
+          "d": "GBP to USD"
+        },
+        {
+          "s": "FX:USDJPY",
+          "d": "USD to JPY"
+        },
+        {
+          "s": "FX:USDCHF",
+          "d": "USD to CHF"
+        },
+        {
+          "s": "FX:AUDUSD",
+          "d": "AUD to USD"
+        },
+        {
+          "s": "FX:USDCAD",
+          "d": "USD to CAD"
+        }
+      ],
+      "originalTitle": "Forex"
+    }
+  ]
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+          
+    </div>
+  </div>
+<!--Cryptocurrency TradingView Widget END -->
+
+<!--Forex TradingView Widget BEGIN -->
+
+ <div class="p-4 bg-gray-800 shadow-md">
+    <div class="p-4 text-center text-white">
+      <div class="text-lg font-bold pb-4">Forex Trading Dashboard</div>
+      <div>
+        <input type="text" placeholder="Search Currency Pair" class="p-2 rounded-lg bg-gray-700 text-white">
+      </div>
+      <div class="space-x-4 pt-4 leading-loose">
+        <span>EUR/USD: <span class="text-green-400">+0.34%</span></span>
+        <span>GBP/USD: <span class="text-red-400">-0.12%</span></span>
+        <span>USD/JPY: <span class="text-green-400">+0.45%</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Section -->
+  <div class="container mx-auto p-4 text-white">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Currency Pair Information -->
+     
+          <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+  {
+  "symbol": "FX:EURUSD",
+  "width": "100%",
+  "height": "400",
+  "locale": "en",
+  "dateRange": "12M",
+  "colorTheme": "dark",
+  "isTransparent": false,
+  "autosize": true,
+  "largeChartUrl": ""
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+          <p>Volume: 1.2M</p>
+        <ul class="text-sm space-y-2">
+          <li>Daily High: 1.1780</li>
+          <li>Daily Low: 1.1702</li>
+          <li>52 Week High: 1.2000</li>
+          <li>52 Week Low: 1.0500</li>
+          <li>Spread: 0.2 pips</li>
+        </ul>
+      </div>
+
+      <!-- Chart Section -->
+      <div class="lg:col-span-2 bg-gray-800 p-4 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold">Price Chart</h2>
+        <div class="bg-gray-700 h-64 rounded-lg flex items-center justify-center">
+            
+          <!-- Placeholder for a forex price chart-->
+          
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+  <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+  
+  <!-- TradingView Widget BEGIN -->
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+  {
+  "autosize": true,
+  "symbol": "FX:EURUSD",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "dark",
+  "style": "1",
+  "locale": "en",
+  "allow_symbol_change": true,
+  "calendar": false,
+  "support_host": "https://www.tradingview.com"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+         
+        </div>
+        <div class="mt-4 flex justify-between">
+          <button class="p-2 bg-gray-700 rounded-lg">1H</button>
+          <button class="p-2 bg-gray-700 rounded-lg">1D</button>
+          <button class="p-2 bg-gray-700 rounded-lg">1W</button>
+          <button class="p-2 bg-gray-700 rounded-lg">1M</button>
+          <button class="p-2 bg-gray-700 rounded-lg">1Y</button>
+        </div>
+      </div>
+
+      <!-- Trade Panel -->
+      <div class="lg:col-span-1 bg-gray-800 p-4 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold">Trade EUR/USD</h2>
+        <form class="space-y-4 mt-4">
+          <div>
+            <label class="block">Order Type</label>
+            <select class="p-2 w-full rounded-lg bg-gray-700">
+              <option>Market Order</option>
+              <option>Limit Order</option>
+              <option>Stop Order</option>
+            </select>
+          </div>
+          <div>
+            <label class="block">Position</label>
+            <select class="p-2 w-full rounded-lg bg-gray-700">
+              <option>Buy</option>
+              <option>Sell</option>
+            </select>
+          </div>
+          <div>
+            <label class="block">Lot Size</label>
+            <input type="number" class="p-2 w-full rounded-lg bg-gray-700" placeholder="Enter lot size">
+          </div>
+          <div>
+            <label class="block">Stop Loss</label>
+            <input type="text" class="p-2 w-full rounded-lg bg-gray-700" placeholder="Enter stop loss price">
+          </div>
+          <div>
+            <label class="block">Take Profit</label>
+            <input type="text" class="p-2 w-full rounded-lg bg-gray-700" placeholder="Enter take profit price">
+          </div>
+          <button class="w-full p-2 bg-green-500 rounded-lg hover:bg-green-600">Place Trade</button>
+        </form>
+      </div>
+    </div>
+  </div>
+<!--Forex TradingView Widget END --> 
+  
+    <!-- Stock Information -->
+  <div class="p-4 bg-gray-800 shadow-md">
+  <div class="text-center p-4 text-white">
+  <div class="text-lg font-bold pb-4">Stock Trading Dashboard</div>
+      <div>
+        <input type="text" placeholder="Search Stock Symbol" class="p-2 rounded-lg bg-gray-700 text-white">
+      </div>
+      <div class="space-x-4 pt-4 leading-loose">
+        <span>S&P 500: <span class="text-green-400">+0.5%</span></span>
+        <span>Dow Jones: <span class="text-red-400">-0.3%</span></span>
+        <span>Nasdaq: <span class="text-green-400">+1.1%</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Section -->
+  <div class="container mx-auto p-4 text-white">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+   
+          <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+  {
+  "symbols": [
+    [
+      "Apple",
+      "AAPL|1D"
+    ],
+    [
+      "Google",
+      "GOOGL|1D"
+    ],
+    [
+      "Microsoft",
+      "MSFT|1D"
+    ]
+  ],
+  "chartOnly": false,
+  "width": "100%",
+  "height": "400",
+  "locale": "en",
+  "colorTheme": "dark",
+  "autosize": true,
+  "showVolume": false,
+  "showMA": false,
+  "hideDateRanges": false,
+  "hideMarketStatus": false,
+  "hideSymbolLogo": false,
+  "scalePosition": "right",
+  "scaleMode": "Normal",
+  "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+  "fontSize": "10",
+  "noTimeScale": false,
+  "valuesTracking": "1",
+  "changeMode": "price-and-percent",
+  "chartType": "area",
+  "maLineColor": "#2962FF",
+  "maLineWidth": 1,
+  "maLength": 9,
+  "headerFontSize": "medium",
+  "lineWidth": 2,
+  "lineType": 0,
+  "dateRanges": [
+    "1d|1",
+    "1m|30",
+    "3m|60",
+    "12m|1D",
+    "60m|1W",
+    "all|1M"
+  ]
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+
+        <p>Volume: 34.5M</p>
+        <ul class="text-sm space-y-2">
+          <li>P/E Ratio: 28.7</li>
+          <li>Dividend Yield: 1.2%</li>
+          <li>52 Week High: $180.50</li>
+          <li>52 Week Low: $124.38</li>
+          <li>Market Cap: $2.87T</li>
+        </ul>
+      </div>
+
+      <!-- Chart -->
+      <div class="lg:col-span-2 bg-gray-800 p-4 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold">Price Chart</h2>
+        <div class="bg-gray-700 h-64 rounded-lg flex items-center justify-center">
+         
+          <!-- Placeholder for a stock chart--> 
+     
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+  <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+   <!-- TradingView Widget BEGIN -->
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+  {
+  "autosize": true,
+  "symbol": "NASDAQ:AAPL",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "dark",
+  "style": "1",
+  "locale": "en",
+  "allow_symbol_change": true,
+  "calendar": false,
+  "support_host": "https://www.tradingview.com"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+        </div>
+        <div class="mt-4 flex justify-between">
+          <button class="p-2 bg-gray-700 rounded-lg">1D</button>
+          <button class="p-2 bg-gray-700 rounded-lg">1W</button>
+          <button class="p-2 bg-gray-700 rounded-lg">1M</button>
+          <button class="p-2 bg-gray-700 rounded-lg">1Y</button>
+          <button class="p-2 bg-gray-700 rounded-lg">Max</button>
+        </div>
+      </div>
+
+      <!-- Buy/Sell Panel -->
+      <div class="lg:col-span-1 bg-gray-800 p-4 rounded-lg shadow-md">
+        <h2 class="text-xl font-bold">Trade AAPL</h2>
+        <form class="space-y-4 mt-4">
+          <div>
+            <label class="block">Order Type</label>
+            <select class="p-2 w-full rounded-lg bg-gray-700">
+              <option>Market Order</option>
+              <option>Limit Order</option>
+            </select>
+          </div>
+          <div>
+            <label class="block">Number of Shares</label>
+            <input type="number" class="p-2 w-full rounded-lg bg-gray-700">
+          </div>
+          <div>
+            <label class="block">Estimated Total</label>
+            <input type="text" class="p-2 w-full rounded-lg bg-gray-700" value="$0.00" readonly>
+          </div>
+          <button class="w-full p-2 bg-green-500 rounded-lg hover:bg-green-600">Buy</button>
+          <button class="w-full p-2 bg-red-500 rounded-lg hover:bg-red-600">Sell</button>
+        </form>
+      </div>
+    </div>
+    </div>
+    <!-- Stock market Trading view ends-->
+    </div>
+  <!-- Trading Analysis ends-->
+</body>
+</html>
